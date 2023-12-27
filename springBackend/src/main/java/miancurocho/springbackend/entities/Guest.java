@@ -10,20 +10,19 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-
 import java.util.Date;
 
-@Entity(name = "EMPLOYEE")
+@Entity(name = "GUEST")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-public class Employee {
+public class Guest {
     @Id
-    @JsonProperty("employee_id")
-    @GeneratedValue(generator = "employee_seq")
-    @SequenceGenerator(name="employee_seq", sequenceName = "EMPLOYEE_SEQ",allocationSize = 1)
-    private Long employeeId;
+    @JsonProperty("guest_id")
+    @GeneratedValue(generator = "guest_seq")
+    @SequenceGenerator(name="guest_seq", sequenceName = "GUEST_SEQ",allocationSize = 1)
+    private Long guestId;
     @JsonProperty("first_name")
     private String firstName;
     @JsonProperty("middle_name")
@@ -40,9 +39,5 @@ public class Employee {
     private String emailAddress;
     @JsonProperty("age")
     private Integer age;
-    @JsonProperty("supervisor")
-    private Long supervisor;
-    @JsonProperty("employee_type")
-    private String employeeType;
 
 }
