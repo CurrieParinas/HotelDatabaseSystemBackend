@@ -26,6 +26,9 @@ public class GuestService {
         if(optionalExistingGuest.isPresent()){
             Guest existingGuest = optionalExistingGuest.get();
 
+            if(guestToUpdate.getBrnId() != null){
+                existingGuest.setBrnId(guestToUpdate.getBrnId());
+            }
             if(guestToUpdate.getFirstName() != null){
                 existingGuest.setFirstName(guestToUpdate.getFirstName());
             }
@@ -49,6 +52,9 @@ public class GuestService {
             }
             if(guestToUpdate.getAge() != null){
                 existingGuest.setAge(guestToUpdate.getAge());
+            }
+            if(guestToUpdate.getGuestType() != null){
+                existingGuest.setGuestType(guestToUpdate.getGuestType());
             }
 
             return guestRepository.save(existingGuest);

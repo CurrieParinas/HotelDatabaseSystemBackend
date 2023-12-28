@@ -10,17 +10,18 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
-@Entity(name = "ROOM")
+@Entity(name = "SERVICE_ROOM_TYPE")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-public class Room {
+public class ServiceRoomType {
     @Id
-    @JsonProperty("room_number")
-    private Long roomNumber;
     @JsonProperty("room_type")
     private Long roomType;
+    @Id
+    @JsonProperty("service_id")
+    private Long serviceId;
+    @JsonProperty("price")
+    private Long price;
 }

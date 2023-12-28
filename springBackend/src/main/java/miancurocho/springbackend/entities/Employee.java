@@ -22,7 +22,7 @@ public class Employee {
     @Id
     @JsonProperty("employee_id")
     @GeneratedValue(generator = "employee_seq")
-    @SequenceGenerator(name="employee_seq", sequenceName = "EMPLOYEE_SEQ",allocationSize = 1)
+    @SequenceGenerator(name="employee_seq", sequenceName = "EMPLOYEE_SEQ",  allocationSize = 1)
     private Long employeeId;
     @JsonProperty("first_name")
     private String firstName;
@@ -40,9 +40,10 @@ public class Employee {
     private String emailAddress;
     @JsonProperty("age")
     private Integer age;
+    @JsonProperty("salary")
+    private Long salary;
     @JsonProperty("supervisor")
     private Long supervisor;
     @JsonProperty("employee_type")
     private String employeeType;
-
 }

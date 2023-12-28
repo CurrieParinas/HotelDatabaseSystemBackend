@@ -16,7 +16,7 @@ public class BRNService {
 
     public List<BRN> getAllBRNs(){return brnRepository.findAll();}
 
-    public BRN getBRN(Long brnId){return brnRepository.findByBRNId(brnId);}
+    public BRN getBRN(Long brnId){return brnRepository.findByBrnId(brnId);}
 
     public BRN addBRN(BRN brnToAdd){return brnRepository.save(brnToAdd);}
     public void deleteBRNById(Long brnId){brnRepository.deleteById(brnId);}
@@ -45,10 +45,6 @@ public class BRNService {
             if(brnToUpdate.getTotalCost() != null){
                 existingBRN.setTotalCost(brnToUpdate.getTotalCost());
             }
-            if(brnToUpdate.getPaymentDetailsId() != null){
-                existingBRN.setPaymentDetailsId(brnToUpdate.getPaymentDetailsId());
-            }
-
 
             return brnRepository.save(existingBRN);
         }

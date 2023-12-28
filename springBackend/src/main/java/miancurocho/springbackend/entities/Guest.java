@@ -23,6 +23,8 @@ public class Guest {
     @GeneratedValue(generator = "guest_seq")
     @SequenceGenerator(name="guest_seq", sequenceName = "GUEST_SEQ",allocationSize = 1)
     private Long guestId;
+    @JsonProperty("brn_id")
+    private Long brnId;
     @JsonProperty("first_name")
     private String firstName;
     @JsonProperty("middle_name")
@@ -39,5 +41,6 @@ public class Guest {
     private String emailAddress;
     @JsonProperty("age")
     private Integer age;
-
+    @JsonProperty("guest_type")
+    private Character guestType;
 }

@@ -26,24 +26,10 @@ public class RoomService {
         if(optionalExistingRoom.isPresent()){
             Room existingRoom = optionalExistingRoom.get();
 
-            if(roomToUpdate.getRoomType() != null){
+            if(roomToUpdate.getRoomType() != null) {
                 existingRoom.setRoomType(roomToUpdate.getRoomType());
             }
-            if(roomToUpdate.getDescription() != null){
-                existingRoom.setDescription(roomToUpdate.getDescription());
-            }
-            if(roomToUpdate.getPrice() != null){
-                existingRoom.setPrice(roomToUpdate.getPrice());
-            }
-            if(roomToUpdate.getMaxGuests() != null){
-                existingRoom.setMaxGuests(roomToUpdate.getMaxGuests());
-            }
-            if(roomToUpdate.getBeds() != null){
-                existingRoom.setBeds(roomToUpdate.getBeds());
-            }
-            if(roomToUpdate.getArea() != null){
-                existingRoom.setArea(roomToUpdate.getArea());
-            }
+
             return roomRepository.save(existingRoom);
         }
         return null;

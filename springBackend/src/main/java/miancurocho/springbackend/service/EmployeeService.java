@@ -51,12 +51,16 @@ public class EmployeeService {
             if(employeeToUpdate.getAge() != null){
                 existingEmployee.setAge(employeeToUpdate.getAge());
             }
+            if(employeeToUpdate.getSalary() != null){
+                existingEmployee.setSalary(employeeToUpdate.getSalary());
+            }
             if(employeeToUpdate.getSupervisor() != null){
                 existingEmployee.setSupervisor(employeeToUpdate.getSupervisor());
             }
             if(employeeToUpdate.getEmployeeType() != null){
                 existingEmployee.setEmployeeType(employeeToUpdate.getEmployeeType());
             }
+
             return employeeRepository.save(existingEmployee);
         }
         return null;

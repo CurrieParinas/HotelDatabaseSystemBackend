@@ -26,6 +26,9 @@ public class PDService {
         if(optionalPaymentDetails.isPresent()){
             PD existingPD = optionalPaymentDetails.get();
 
+            if(pdToUpdate.getBrnId() != null){
+                existingPD.setBrnId(pdToUpdate.getBrnId());
+            }
             if(pdToUpdate.getModeOfPayment() != null){
                 existingPD.setModeOfPayment(pdToUpdate.getModeOfPayment());
             }

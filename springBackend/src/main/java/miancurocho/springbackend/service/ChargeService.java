@@ -32,9 +32,6 @@ public class ChargeService {
             if(chargeToUpdate.getRoomNumber() != null){
                 existingCharge.setRoomNumber(chargeToUpdate.getRoomNumber());
             }
-            if(chargeToUpdate.getChargeDate() != null){
-                existingCharge.setChargeDate(chargeToUpdate.getChargeDate());
-            }
             if(chargeToUpdate.getCost() != null){
                 existingCharge.setCost(chargeToUpdate.getCost());
             }

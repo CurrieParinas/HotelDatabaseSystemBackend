@@ -35,6 +35,4 @@ public class BRN {
     private String status;
     @JsonProperty("total_cost")
     private Long totalCost;
-    @JsonProperty("payment_details_id")
-    private Long paymentDetailsId;
 }
