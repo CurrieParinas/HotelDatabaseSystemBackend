@@ -24,7 +24,7 @@ public class PD {
     @SequenceGenerator(name="pd_seq", sequenceName = "PD_SEQ",allocationSize = 1)
     private Long paymentDetailsId;
     @JsonProperty("brn_id")
-    private Long brnId;
+    private String brnId;
     @JsonProperty("mode_of_payment")
     private String modeOfPayment;
     @JsonProperty("card_number")

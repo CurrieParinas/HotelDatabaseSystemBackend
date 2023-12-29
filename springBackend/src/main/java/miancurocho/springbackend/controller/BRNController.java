@@ -9,23 +9,24 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/brn")
 public class BRNController {
     private final BRNService brnService;
-    @GetMapping(path="/allBRNs")
+    @GetMapping(path="/all")
     public List<BRN> displayBRNs(){return brnService.getAllBRNs();}
 
-    @GetMapping(path="/getBRN/{brnId}")
+    @GetMapping(path="/{brnId}")
     public BRN getBRN(@PathVariable String brnId){return brnService.getBRN(brnId);}
 
-    @PostMapping(path= "/addBRN")
+    @PostMapping(path= "/add")
     public @ResponseBody BRN addBRN(@RequestBody BRN brnToAdd){
         return brnService.addBRN(brnToAdd);
     }
 
-    @PostMapping(path="/deleteBRNById/{brnId}")
+    @PostMapping(path="/delete/{brnId}")
     public void deleteBRNById(@PathVariable String brnId){brnService.deleteBRNById(brnId);}
 
-    @PostMapping(path="/updateBRN")
+    @PostMapping(path="/update")
     public @ResponseBody BRN updateBRN(@RequestBody BRN brnToUpdate){
         return brnService.updateBRN(brnToUpdate);
     }

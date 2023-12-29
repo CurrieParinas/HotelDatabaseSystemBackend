@@ -9,29 +9,30 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/accounts")
 public class AccountsController {
     private final AccountsService accountsService;
 
-    @GetMapping(path="/allAccounts")
+    @GetMapping(path="/all")
     public List<Accounts> displayAccounts(){return accountsService.getAllAccounts();}
 
-    @GetMapping(path="/getAccount/{employeeId}")
+    @GetMapping(path="/{employeeId}")
     public Accounts getAccount(@PathVariable Long employeeId){return accountsService.getAccount(employeeId);}
 
-    @PostMapping(path= "/addAccount")
+    @PostMapping(path= "/add")
     public @ResponseBody Accounts addAccount(@RequestBody Accounts accountToAdd){
         return accountsService.addAccount(accountToAdd);
     }
 
-    @PostMapping(path="/deleteAccountById/{employeeId}")
+    @PostMapping(path="/delete/{employeeId}")
     public void deleteAccountById(@PathVariable Long employeeId){accountsService.deleteAccountById(employeeId);}
 
-    @PostMapping(path="/updateAccount")
+    @PostMapping(path="/update")
     public @ResponseBody Accounts updateAccount(@RequestBody Accounts accountToUpdate){
         return accountsService.updateAccount(accountToUpdate);
     }
 
-    @GetMapping(path="/getEmployeeId")
+    @GetMapping(path="/getId")
     public @ResponseBody Long getEmployeeIdByEmailAndPassword(@RequestBody Accounts accountToGet) {
         return accountsService.getEmployeeIdByEmailAndPassword(accountToGet);
     }

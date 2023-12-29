@@ -11,23 +11,24 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/room")
 public class RoomController {
     private final RoomService roomService;
-    @GetMapping(path="/allRooms")
+    @GetMapping(path="/all")
     public List<Room> displayRooms(){return roomService.getAllRooms();}
 
-    @GetMapping(path="/getRoom/{roomNumber}")
+    @GetMapping(path="/{roomNumber}")
     public Room getRoom(@PathVariable Long roomNumber){return roomService.getRoom(roomNumber);}
 
-    @PostMapping(path= "/addRoom")
+    @PostMapping(path= "/add")
     public @ResponseBody Room addRoom(@RequestBody Room roomToAdd){
         return roomService.addRoom(roomToAdd);
     }
 
-    @PostMapping(path="/deleteRoomById/{roomId}")
+    @PostMapping(path="/delete/{roomId}")
     public void deleteRoomById(@PathVariable Long roomId){roomService.deleteRoomById(roomId);}
 
-    @PostMapping(path="/updateRoom")
+    @PostMapping(path="/update")
     public @ResponseBody Room updateRoom(@RequestBody Room roomToUpdate){
         return roomService.updateRoom(roomToUpdate);
     }

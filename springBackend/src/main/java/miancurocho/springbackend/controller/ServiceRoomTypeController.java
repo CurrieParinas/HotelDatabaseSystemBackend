@@ -9,18 +9,19 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/service-room-type")
 public class ServiceRoomTypeController {
     private final ServiceRoomTypeService serviceRoomTypeService;
-    @GetMapping(path="/allServiceRoomTypes")
+    @GetMapping(path="/all")
     public List<ServiceRoomType> displayServiceRoomTypes(){return serviceRoomTypeService.getAllServiceRoomTypes();}
 
-    @GetMapping(path="/getServicePerRoomType/{roomType}")
+    @GetMapping(path="/{roomType}")
     public List<ServiceRoomType> getServicePerRoomType(@PathVariable Long roomType){return serviceRoomTypeService.getServicePerRoomType(roomType);}
 
-    @GetMapping(path="/getServiceRoomType/{roomType}/{serviceId}")
+    @GetMapping(path="/{roomType}/{serviceId}")
     public ServiceRoomType getServiceRoomType(@PathVariable Long roomType, @PathVariable Long serviceId){return serviceRoomTypeService.getServiceRoomType(roomType, serviceId);}
 
-    @PostMapping(path= "/addServiceRoomType")
+    @PostMapping(path= "/add")
     public @ResponseBody ServiceRoomType addServiceRoomType(@RequestBody ServiceRoomType serviceRoomTypeToAdd){
         return serviceRoomTypeService.addServiceRoomType(serviceRoomTypeToAdd);
     }

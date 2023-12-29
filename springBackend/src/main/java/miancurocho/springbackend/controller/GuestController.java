@@ -9,24 +9,30 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/guest")
 public class GuestController {
     private final GuestService guestService;
-    @GetMapping(path="/allGuests")
+    @GetMapping(path="/all")
     public List<Guest> displayGuests(){return guestService.getAllGuests();}
 
-    @GetMapping(path="/getGuest/{guestId}")
+    @GetMapping(path="/{guestId}")
     public Guest getGuest(@PathVariable Long guestId){return guestService.getGuest(guestId);}
 
-    @PostMapping(path= "/addGuest")
+    @PostMapping(path= "/add")
     public @ResponseBody Guest addGuest(@RequestBody Guest guestToAdd){
         return guestService.addGuest(guestToAdd);
     }
 
-    @PostMapping(path="/deleteGuestById/{guestId}")
+    @PostMapping(path="/delete/{guestId}")
     public void deleteGuestById(@PathVariable Long guestId){guestService.deleteGuestById(guestId);}
 
-    @PostMapping(path="/updateGuest")
+    @PostMapping(path="/update")
     public @ResponseBody Guest updateGuest(@RequestBody Guest guestToUpdate){
         return guestService.updateGuest(guestToUpdate);
+    }
+
+    @PostMapping("/addMultiple")
+    public List<Guest> addMultipleGuests(@RequestBody List<Guest> guests) {
+        return guestService.addMultipleGuests(guests);
     }
 }

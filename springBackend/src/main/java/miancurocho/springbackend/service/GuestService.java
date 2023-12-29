@@ -60,6 +60,16 @@ public class GuestService {
             return guestRepository.save(existingGuest);
         }
         return null;
-    }  
+    }
+    public List<Guest> addMultipleGuests(List<Guest> guests) {
+        for(int i = 0; i < guests.size(); i++) {
+            if (i == 0) {
+                guests.get(i).setGuestType('P');
+            } else {
+                guests.get(i).setGuestType('S');
+            }
+        }
+        return guestRepository.saveAll(guests);
+    }
 }
 

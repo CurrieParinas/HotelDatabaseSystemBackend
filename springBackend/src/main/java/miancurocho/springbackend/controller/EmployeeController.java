@@ -10,23 +10,24 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/employee")
 public class EmployeeController {
     private final EmployeeService employeeService;
-    @GetMapping(path="/allEmployees")
+    @GetMapping(path="/all")
     public List<Employee> displayEmployees(){return employeeService.getAllEmployees();}
 
-    @GetMapping(path="/getEmployee/{employeeId}")
+    @GetMapping(path="/{employeeId}")
     public Employee getEmployee(@PathVariable Long employeeId){return employeeService.getEmployee(employeeId);}
 
-    @PostMapping(path= "/addEmployee")
+    @PostMapping(path= "/add")
     public @ResponseBody Employee addEmployee(@RequestBody Employee employeeToAdd){
         return employeeService.addEmployee(employeeToAdd);
     }
 
-    @PostMapping(path="/deleteEmployeeById/{employeeId}")
+    @PostMapping(path="/delete/{employeeId}")
     public void deleteEmployeeById(@PathVariable Long employeeId){employeeService.deleteEmployeeById(employeeId);}
 
-    @PostMapping(path="/updateEmployee")
+    @PostMapping(path="/update")
     public @ResponseBody Employee updateEmployee(@RequestBody Employee employeeToUpdate){
         return employeeService.updateEmployee(employeeToUpdate);
     }

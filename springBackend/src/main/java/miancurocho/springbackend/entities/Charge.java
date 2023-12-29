@@ -24,7 +24,7 @@ public class Charge {
     @SequenceGenerator(name="charge_seq", sequenceName = "CHARGE_SEQ",allocationSize = 1)
     private Long chargeId;
     @JsonProperty("brn_id")
-    private Long brnId;
+    private String brnId;
     @JsonProperty("room_number")
     private Long roomNumber;
     @JsonProperty("cost")

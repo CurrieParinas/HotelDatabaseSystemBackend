@@ -24,7 +24,7 @@ public class Guest {
     @SequenceGenerator(name="guest_seq", sequenceName = "GUEST_SEQ",allocationSize = 1)
     private Long guestId;
     @JsonProperty("brn_id")
-    private Long brnId;
+    private String brnId;
     @JsonProperty("first_name")
     private String firstName;
     @JsonProperty("middle_name")
@@ -43,4 +43,16 @@ public class Guest {
     private Integer age;
     @JsonProperty("guest_type")
     private Character guestType;
+
+    public Guest(String brnId, String firstName, String middleName, String lastName, Date birthday, String address, Long contactNumber, String emailAddress, Integer age) {
+        this.brnId = brnId;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.address = address;
+        this.contactNumber = contactNumber;
+        this.emailAddress = emailAddress;
+        this.age = age;
+    }
 }

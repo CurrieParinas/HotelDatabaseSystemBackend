@@ -9,23 +9,24 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(path = "/charge")
 public class ChargeController {
     private final ChargeService chargeService;
-    @GetMapping(path="/allCharges")
+    @GetMapping(path="/all")
     public List<Charge> displayCharges(){return chargeService.getAllCharges();}
 
-    @GetMapping(path="/getCharge/{chargeId}")
+    @GetMapping(path="/{chargeId}")
     public Charge getCharge(@PathVariable Long chargeId){return chargeService.getCharge(chargeId);}
 
-    @PostMapping(path= "/addCharge")
+    @PostMapping(path= "/add")
     public @ResponseBody Charge addCharge(@RequestBody Charge chargeToAdd){
         return chargeService.addCharge(chargeToAdd);
     }
 
-    @PostMapping(path="/deleteChargeById/{chargeId}")
+    @PostMapping(path="/delete/{chargeId}")
     public void deleteChargeById(@PathVariable Long chargeId){chargeService.deleteChargeById(chargeId);}
 
-    @PostMapping(path="/updateCharge")
+    @PostMapping(path="/update")
     public @ResponseBody Charge updateCharge(@RequestBody Charge chargeToUpdate){
         return chargeService.updateCharge(chargeToUpdate);
     }
