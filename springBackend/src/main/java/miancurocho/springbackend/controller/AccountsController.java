@@ -30,4 +30,9 @@ public class AccountsController {
     public @ResponseBody Accounts updateAccount(@RequestBody Accounts accountToUpdate){
         return accountsService.updateAccount(accountToUpdate);
     }
+
+    @GetMapping(path="/getEmployeeId")
+    public @ResponseBody Long getEmployeeIdByEmailAndPassword(@RequestBody Accounts accountToGet) {
+        return accountsService.getEmployeeIdByEmailAndPassword(accountToGet);
+    }
 }

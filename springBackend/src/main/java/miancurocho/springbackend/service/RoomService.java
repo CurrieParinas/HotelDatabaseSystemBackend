@@ -6,6 +6,7 @@ import miancurocho.springbackend.repository.RoomRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -33,5 +34,9 @@ public class RoomService {
             return roomRepository.save(existingRoom);
         }
         return null;
+    }
+
+    public List<Map<String, Object>> getAvailableRooms() {
+        return roomRepository.findAllAvailableRooms();
     }
 }

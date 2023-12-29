@@ -2,9 +2,7 @@ package miancurocho.springbackend.service;
 
 import lombok.RequiredArgsConstructor;
 import miancurocho.springbackend.entities.Accounts;
-import miancurocho.springbackend.entities.BRN;
 import miancurocho.springbackend.repository.AccountsRepository;
-import miancurocho.springbackend.repository.BRNRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,5 +36,15 @@ public class AccountsService {
             return accountsRepository.save(existingAccount);
         }
         return null;
+    }
+
+    public Long getEmployeeIdByEmailAndPassword(Accounts accountToGet) {
+        Optional<Accounts> optionalExistingAccount = accountsRepository.findByEmailAndPassword(accountToGet.getEmail(), accountToGet.getPassword());
+
+        if (optionalExistingAccount.isPresent()) {
+            return optionalExistingAccount.get().getEmployeeId();
+        } else {
+            return null;
+        }
     }
 }
