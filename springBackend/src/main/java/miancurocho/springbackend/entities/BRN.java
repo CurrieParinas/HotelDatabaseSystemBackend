@@ -20,9 +20,7 @@ import java.util.Date;
 public class BRN {
     @Id
     @JsonProperty("brn_id")
-    @GeneratedValue(generator = "brn_seq")
-    @SequenceGenerator(name="brn_seq", sequenceName = "BRN_SEQ",allocationSize = 1)
-    private Long brnId;
+    private String brnId;
     @JsonProperty("employee_id")
     private Long employeeId;
     @JsonProperty("booking_date")

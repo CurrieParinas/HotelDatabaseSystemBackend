@@ -16,10 +16,24 @@ public class BRNService {
 
     public List<BRN> getAllBRNs(){return brnRepository.findAll();}
 
-    public BRN getBRN(Long brnId){return brnRepository.findByBrnId(brnId);}
+    public BRN getBRN(String brnId){return brnRepository.findByBrnId(brnId);}
 
-    public BRN addBRN(BRN brnToAdd){return brnRepository.save(brnToAdd);}
-    public void deleteBRNById(Long brnId){brnRepository.deleteById(brnId);}
+    public BRN addBRN(BRN brnToAdd){
+        StringBuilder brnIdbuilder;
+        do{
+            String charlist = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            brnIdbuilder = new StringBuilder();
+
+            for (int i = 0; i < 6; i++) {
+                int randIndex = (int) Math.floor(Math.random() * charlist.length());
+                brnIdbuilder.append(charlist.charAt(randIndex));
+            }
+
+            brnToAdd.setBrnId(brnIdbuilder.toString());
+        }while(getBRN(brnIdbuilder.toString()) != null);
+
+        return brnRepository.save(brnToAdd);}
+    public void deleteBRNById(String brnId){brnRepository.deleteById(brnId);}
 
     public BRN updateBRN(BRN brnToUpdate){
         Optional<BRN> optionalExistingBRN = brnRepository.findById(brnToUpdate.getBrnId());

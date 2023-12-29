@@ -15,7 +15,7 @@ public class BRNController {
     public List<BRN> displayBRNs(){return brnService.getAllBRNs();}
 
     @GetMapping(path="/getBRN/{brnId}")
-    public BRN getBRN(@PathVariable Long brnId){return brnService.getBRN(brnId);}
+    public BRN getBRN(@PathVariable String brnId){return brnService.getBRN(brnId);}
 
     @PostMapping(path= "/addBRN")
     public @ResponseBody BRN addBRN(@RequestBody BRN brnToAdd){
@@ -23,7 +23,7 @@ public class BRNController {
     }
 
     @PostMapping(path="/deleteBRNById/{brnId}")
-    public void deleteBRNById(@PathVariable Long brnId){brnService.deleteBRNById(brnId);}
+    public void deleteBRNById(@PathVariable String brnId){brnService.deleteBRNById(brnId);}
 
     @PostMapping(path="/updateBRN")
     public @ResponseBody BRN updateBRN(@RequestBody BRN brnToUpdate){
