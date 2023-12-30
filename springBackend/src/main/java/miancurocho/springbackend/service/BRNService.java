@@ -7,6 +7,7 @@ import miancurocho.springbackend.repository.BRNRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -63,5 +64,9 @@ public class BRNService {
             return brnRepository.save(existingBRN);
         }
         return null;
+    }
+
+    public List<Map<String, Object>> getBookedOrCheckedInRooms() {
+        return brnRepository.findBookedOrCheckedInRooms();
     }
 }

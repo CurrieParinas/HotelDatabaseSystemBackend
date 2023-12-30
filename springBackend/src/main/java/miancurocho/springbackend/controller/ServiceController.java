@@ -6,6 +6,8 @@ import miancurocho.springbackend.service.ServiceService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
@@ -29,5 +31,10 @@ public class ServiceController {
     @PostMapping(path="/update")
     public @ResponseBody Service updateService(@RequestBody Service serviceToUpdate){
         return serviceService.updateService(serviceToUpdate);
+    }
+
+    @GetMapping(path="/availedServicesOfRoomAndBRN")
+    public List<Map<String, Object>> displayAvailedServicesOfRoomAndBRN(@RequestParam Long roomNumber, @RequestParam String BRN, @RequestParam String employeeType) {
+        return serviceService.getAvailedServicesOfRoomAndBRN(roomNumber, BRN, employeeType);
     }
 }

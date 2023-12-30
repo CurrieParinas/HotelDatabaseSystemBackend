@@ -5,6 +5,7 @@ import miancurocho.springbackend.entities.Service;
 import miancurocho.springbackend.repository.ServiceRepository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
@@ -35,5 +36,9 @@ public class ServiceService {
             return serviceRepository.save(existingService);
         }
         return null;
+    }
+
+    public List<Map<String, Object>> getAvailedServicesOfRoomAndBRN(Long roomNumber, String BRN, String employeeType) {
+        return serviceRepository.findAvailedServicesOfRoomAndBRN(roomNumber, BRN, employeeType);
     }
 }

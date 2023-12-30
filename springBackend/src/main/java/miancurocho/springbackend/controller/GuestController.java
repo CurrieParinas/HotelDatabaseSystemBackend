@@ -6,6 +6,8 @@ import miancurocho.springbackend.service.GuestService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
@@ -35,4 +37,7 @@ public class GuestController {
     public List<Guest> addMultipleGuests(@RequestBody List<Guest> guests) {
         return guestService.addMultipleGuests(guests);
     }
+
+    @GetMapping(path = "/primaryGuestOfBRN/{BRN}")
+    public List<Map<String, Object>> getPrimaryGuestOfBRN(@PathVariable String BRN){return guestService.getPrimaryGuestOfBRN(BRN);}
 }

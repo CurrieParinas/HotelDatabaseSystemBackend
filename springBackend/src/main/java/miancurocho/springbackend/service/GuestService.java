@@ -6,6 +6,7 @@ import miancurocho.springbackend.repository.GuestRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -70,6 +71,10 @@ public class GuestService {
             }
         }
         return guestRepository.saveAll(guests);
+    }
+
+    public List<Map<String, Object>> getPrimaryGuestOfBRN(String BRN) {
+        return guestRepository.findPrimaryGuestOfBRN(BRN);
     }
 }
 

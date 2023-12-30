@@ -6,6 +6,8 @@ import miancurocho.springbackend.service.BRNService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
@@ -30,4 +32,7 @@ public class BRNController {
     public @ResponseBody BRN updateBRN(@RequestBody BRN brnToUpdate){
         return brnService.updateBRN(brnToUpdate);
     }
+
+    @GetMapping(path = "/bookedOrCheckedInRooms")
+    public List<Map<String, Object>> displayBookedOrCheckedInRooms(){return brnService.getBookedOrCheckedInRooms();}
 }
