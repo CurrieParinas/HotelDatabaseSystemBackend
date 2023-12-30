@@ -6,7 +6,7 @@ import miancurocho.springbackend.service.AccountsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/accounts")
@@ -33,7 +33,7 @@ public class AccountsController {
     }
 
     @GetMapping(path="/getId")
-    public @ResponseBody Long getEmployeeIdByEmailAndPassword(@RequestBody Accounts accountToGet) {
-        return accountsService.getEmployeeIdByEmailAndPassword(accountToGet);
+    public Long getEmployeeIdByEmailAndPassword(@RequestParam String accountEmail, @RequestParam String accountPassword) {
+        return accountsService.getEmployeeIdByEmailAndPassword(accountEmail,accountPassword);
     }
 }

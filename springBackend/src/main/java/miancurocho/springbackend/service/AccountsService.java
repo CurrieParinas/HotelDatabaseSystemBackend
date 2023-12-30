@@ -38,8 +38,8 @@ public class AccountsService {
         return null;
     }
 
-    public Long getEmployeeIdByEmailAndPassword(Accounts accountToGet) {
-        Optional<Accounts> optionalExistingAccount = accountsRepository.findByEmailAndPassword(accountToGet.getEmail(), accountToGet.getPassword());
+    public Long getEmployeeIdByEmailAndPassword(String accountEmail, String accountPassword) {
+        Optional<Accounts> optionalExistingAccount = accountsRepository.findByEmailAndPassword(accountEmail, accountPassword);
 
         if (optionalExistingAccount.isPresent()) {
             return optionalExistingAccount.get().getEmployeeId();

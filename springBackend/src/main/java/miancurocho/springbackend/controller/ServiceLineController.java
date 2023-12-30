@@ -6,7 +6,7 @@ import miancurocho.springbackend.service.ServiceLineService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/service-line")
