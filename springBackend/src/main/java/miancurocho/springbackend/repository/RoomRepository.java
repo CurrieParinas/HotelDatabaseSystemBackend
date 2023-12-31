@@ -16,8 +16,8 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
                     "            LEFT JOIN CHARGE C ON R.ROOM_NUMBER = C.ROOM_NUMBER\n" +
                     "            LEFT JOIN BRN B ON C.BRN_ID = B.BRN_ID\n" +
                     "WHERE R.ROOM_NUMBER NOT IN (SELECT R.ROOM_NUMBER\n" +
-                    "                            FROM ROOM R LEFT JOIN CHARGE C ON R.ROOM_NUMBER = C.ROOM_NUMBER\n" +
-                    "                                        LEFT JOIN BRN B ON C.BRN_ID = B.BRN_ID\n" +
+                    "                            FROM ROOM R JOIN CHARGE C ON R.ROOM_NUMBER = C.ROOM_NUMBER\n" +
+                    "                                        JOIN BRN B ON C.BRN_ID = B.BRN_ID\n" +
                     "                            WHERE B.BRN_ID NOT IN (SELECT BRN_ID FROM BRN WHERE STATUS = 'CHECKED-OUT')\n" +
                     "                            GROUP BY R.ROOM_NUMBER)\n" +
                     "GROUP BY R.ROOM_NUMBER, ROOM_NAME, DESCRIPTION, PRICE, MAX_GUESTS, BEDS, AREA",
