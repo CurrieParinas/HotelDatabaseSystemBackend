@@ -24,4 +24,13 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
             nativeQuery = true
     )
     List<Map<String, Object>> findAllAvailableRooms();
+
+    @Query(
+            value = "SELECT R.ROOM_NUMBER, B.BRN_ID\n" +
+                    "FROM ROOM R JOIN CHARGE C ON R.ROOM_NUMBER = C.ROOM_NUMBER\n" +
+                    "            JOIN BRN B ON C.BRN_ID = B.BRN_ID\n" +
+                    "WHERE STATUS != 'CHECKED-OUT'",
+            nativeQuery = true
+    )
+    List<Map<String, Object>> findBookedOrCheckedInRooms();
 }

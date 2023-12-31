@@ -11,11 +11,10 @@ public interface BRNRepository extends JpaRepository<BRN,String> {
     BRN findByBrnId(String BRNId);
 
     @Query(
-            value = "SELECT R.ROOM_NUMBER, B.BRN_ID\n" +
-                    "FROM ROOM R JOIN CHARGE C ON R.ROOM_NUMBER = C.ROOM_NUMBER\n" +
-                    "            JOIN BRN B ON C.BRN_ID = B.BRN_ID\n" +
-                    "WHERE STATUS = 'BOOKED' OR STATUS = 'CHECKED-IN'",
+            value = "SELECT BRN_ID\n" +
+                    "FROM BRN\n" +
+                    "WHERE STATUS != 'CHECKED-OUT'",
             nativeQuery = true
     )
-    List<Map<String, Object>> findBookedOrCheckedInRooms();
+    List<String> findAllActiveBRN();
 }

@@ -66,7 +66,7 @@ public class BRNService {
         return null;
     }
 
-    public List<Map<String, Object>> getBookedOrCheckedInRooms() {
-        return brnRepository.findBookedOrCheckedInRooms();
+    public List<String> getAllActiveBRN() {
+        return brnRepository.findAllActiveBRN();
     }
 }

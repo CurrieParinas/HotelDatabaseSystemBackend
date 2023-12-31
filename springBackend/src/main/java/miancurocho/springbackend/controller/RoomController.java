@@ -35,4 +35,7 @@ public class RoomController {
 
     @GetMapping(path="/allAvailableRooms")
     public List<Map<String, Object>> displayAvailableRooms(){return roomService.getAvailableRooms();}
+
+    @GetMapping(path = "/bookedOrCheckedInRooms")
+    public List<Map<String, Object>> displayBookedOrCheckedInRooms(){return roomService.getBookedOrCheckedInRooms();}
 }

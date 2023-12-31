@@ -33,6 +33,8 @@ public class BRNController {
         return brnService.updateBRN(brnToUpdate);
     }
 
-    @GetMapping(path = "/bookedOrCheckedInRooms")
-    public List<Map<String, Object>> displayBookedOrCheckedInRooms(){return brnService.getBookedOrCheckedInRooms();}
+    @GetMapping(path = "/allActiveBRN")
+    public List<String> getAllActiveBRN() {
+        return brnService.getAllActiveBRN();
+    }
 }

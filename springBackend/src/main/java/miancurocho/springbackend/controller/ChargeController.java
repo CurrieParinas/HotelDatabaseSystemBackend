@@ -30,4 +30,9 @@ public class ChargeController {
     public @ResponseBody Charge updateCharge(@RequestBody Charge chargeToUpdate){
         return chargeService.updateCharge(chargeToUpdate);
     }
+
+    @GetMapping(path = "/getRoomsOfBRN/{BRN}")
+    public List<Long> getRoomsOfBRN(@PathVariable String BRN) {
+        return chargeService.getRoomsOfBRN(BRN);
+    }
 }

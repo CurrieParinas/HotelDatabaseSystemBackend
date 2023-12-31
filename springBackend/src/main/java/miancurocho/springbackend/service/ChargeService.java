@@ -40,4 +40,8 @@ public class ChargeService {
         }
         return null;
     }
+
+    public List<Long> getRoomsOfBRN(String BRN) {
+        return chargeRepository.findRoomsByBRN(BRN);
+    }
 }

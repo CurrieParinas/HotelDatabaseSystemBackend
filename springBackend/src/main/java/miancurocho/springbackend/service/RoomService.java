@@ -39,4 +39,8 @@ public class RoomService {
     public List<Map<String, Object>> getAvailableRooms() {
         return roomRepository.findAllAvailableRooms();
     }
+
+    public List<Map<String, Object>> getBookedOrCheckedInRooms() {
+        return roomRepository.findBookedOrCheckedInRooms();
+    }
 }
