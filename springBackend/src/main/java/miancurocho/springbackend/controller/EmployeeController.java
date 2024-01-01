@@ -31,4 +31,12 @@ public class EmployeeController {
     public @ResponseBody Employee updateEmployee(@RequestBody Employee employeeToUpdate){
         return employeeService.updateEmployee(employeeToUpdate);
     }
+
+    @GetMapping(path="/employeesBySupervisor/{supervisor}")
+    public List<Employee> displayEmployeesBySupervisor(@PathVariable Long supervisor){return employeeService.getEmployeesBySupervisor(supervisor);}
+
+    @PostMapping(path="/updateSalary/{employeeId}")
+    public Employee updateEmployeeSalary(@PathVariable Long employeeId, @RequestParam Long salary){
+        return employeeService.updateEmployeeSalary(employeeId, salary);
+    }
 }

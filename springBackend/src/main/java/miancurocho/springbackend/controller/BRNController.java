@@ -34,7 +34,7 @@ public class BRNController {
     }
 
     @GetMapping(path = "/allActiveBRN")
-    public List<String> getAllActiveBRN() {
+    public List<String> displayAllActiveBRN() {
         return brnService.getAllActiveBRN();
     }
 }

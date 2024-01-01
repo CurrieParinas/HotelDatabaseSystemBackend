@@ -65,4 +65,23 @@ public class EmployeeService {
         }
         return null;
     }
+
+    public List<Employee> getEmployeesBySupervisor(Long supervisor) {
+        return employeeRepository.findEmployeesBySupervisor(supervisor);
+    }
+
+    public Employee updateEmployeeSalary(Long employeeId, Long salary) {
+        Optional<Employee> optionalExistingEmployee = employeeRepository.findById(employeeId);
+
+        if(optionalExistingEmployee.isPresent()) {
+            Employee existingEmployee = optionalExistingEmployee.get();
+
+            if(salary != null){
+                existingEmployee.setSalary(salary);
+            }
+
+            return employeeRepository.save(existingEmployee);
+        }
+        return null;
+    }
 }

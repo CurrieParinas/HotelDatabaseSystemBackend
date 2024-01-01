@@ -31,8 +31,8 @@ public class ChargeController {
         return chargeService.updateCharge(chargeToUpdate);
     }
 
-    @GetMapping(path = "/getRoomsOfBRN/{BRN}")
-    public List<Long> getRoomsOfBRN(@PathVariable String BRN) {
+    @GetMapping(path = "/roomsOfBRN/{BRN}")
+    public List<Long> displayRoomsOfBRN(@PathVariable String BRN) {
         return chargeService.getRoomsOfBRN(BRN);
     }
 }

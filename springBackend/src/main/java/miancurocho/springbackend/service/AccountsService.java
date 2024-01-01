@@ -6,6 +6,7 @@ import miancurocho.springbackend.repository.AccountsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -38,13 +39,7 @@ public class AccountsService {
         return null;
     }
 
-    public Long getEmployeeIdByEmailAndPassword(String accountEmail, String accountPassword) {
-        Optional<Accounts> optionalExistingAccount = accountsRepository.findByEmailAndPassword(accountEmail, accountPassword);
-
-        if (optionalExistingAccount.isPresent()) {
-            return optionalExistingAccount.get().getEmployeeId();
-        } else {
-            return null;
-        }
+    public List<Map<String, Object>> getEmployeeIdAndTypeByEmailAndPassword(String email, String password) {
+        return accountsRepository.findIdANDEmployeeTypeByEmailAndPassword(email, password);
     }
 }
