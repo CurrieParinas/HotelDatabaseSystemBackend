@@ -29,6 +29,9 @@ public class ServiceService {
             if(serviceToUpdate.getServiceName() != null){
                 existingService.setServiceName(serviceToUpdate.getServiceName());
             }
+            if(serviceToUpdate.getServiceType() != null){
+                existingService.setServiceType(serviceToUpdate.getServiceType());
+            }
             if(serviceToUpdate.getEmployeeType() != null){
                 existingService.setEmployeeType(serviceToUpdate.getEmployeeType());
             }
@@ -40,5 +43,9 @@ public class ServiceService {
 
     public List<Map<String, Object>> getAvailedServicesOfRoomAndBRN(Long roomNumber, String BRN, String employeeType) {
         return serviceRepository.findAvailedServicesOfRoomAndBRN(roomNumber, BRN, employeeType);
+    }
+
+    public List<Service> getAllServicesByServiceType(String serviceType) {
+        return serviceRepository.findByServiceType(serviceType);
     }
 }

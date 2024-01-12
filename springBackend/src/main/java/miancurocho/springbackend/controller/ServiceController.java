@@ -37,4 +37,9 @@ public class ServiceController {
     public List<Map<String, Object>> displayAvailedServicesOfRoomAndBRN(@RequestParam Long roomNumber, @RequestParam String BRN, @RequestParam String employeeType) {
         return serviceService.getAvailedServicesOfRoomAndBRN(roomNumber, BRN, employeeType);
     }
+
+    @GetMapping(path="/servicesByServiceType/{serviceType}")
+    public List<Service> displayAllServicesByServiceType(@PathVariable String serviceType) {
+        return serviceService.getAllServicesByServiceType(serviceType);
+    }
 }

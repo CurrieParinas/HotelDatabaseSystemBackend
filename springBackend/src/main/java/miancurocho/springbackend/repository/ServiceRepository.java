@@ -21,4 +21,6 @@ public interface ServiceRepository extends JpaRepository<Service,Long> {
             nativeQuery = true
     )
     List<Map<String, Object>> findAvailedServicesOfRoomAndBRN(Long roomNumber, String BRN, String employeeType);
+
+    List<Service> findByServiceType(String serviceType);
 }

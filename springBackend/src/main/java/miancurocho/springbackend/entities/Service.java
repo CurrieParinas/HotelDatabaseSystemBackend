@@ -18,11 +18,11 @@ import lombok.Setter;
 public class Service {
     @Id
     @JsonProperty("service_id")
-    @GeneratedValue(generator = "service_seq")
-    @SequenceGenerator(name="service_seq", sequenceName = "SERVICE_SEQ",allocationSize = 1)
     private Long serviceId;
     @JsonProperty("service_name")
     private String serviceName;
+    @JsonProperty("service_type")
+    private String serviceType;
     @JsonProperty("employee_type")
     private String employeeType;
 }

@@ -20,8 +20,8 @@ import java.util.Date;
 public class PD {
     @Id
     @JsonProperty("payment_detail_id")
-    @GeneratedValue(generator = "pd_seq")
-    @SequenceGenerator(name="pd_seq", sequenceName = "PD_SEQ",allocationSize = 1)
+    @GeneratedValue(generator = "payment_seq")
+    @SequenceGenerator(name="payment_seq", sequenceName = "PAYMENT_seq",allocationSize = 1)
     private Long paymentDetailsId;
     @JsonProperty("brn_id")
     private String brnId;

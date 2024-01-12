@@ -21,8 +21,6 @@ import java.util.Date;
 public class Employee {
     @Id
     @JsonProperty("employee_id")
-    @GeneratedValue(generator = "employee_seq")
-    @SequenceGenerator(name="employee_seq", sequenceName = "EMPLOYEE_SEQ",  allocationSize = 1)
     private Long employeeId;
     @JsonProperty("first_name")
     private String firstName;
