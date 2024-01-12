@@ -5,6 +5,11 @@ import miancurocho.springbackend.entities.Guest;
 import miancurocho.springbackend.repository.GuestRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -17,8 +22,24 @@ public class GuestService {
     public List<Guest> getAllGuests(){return guestRepository.findAll();}
 
     public Guest getGuest(Long guestId){return guestRepository.findByGuestId(guestId);}
-    
-    public Guest addGuest(Guest guestToAdd){return guestRepository.save(guestToAdd);}
+
+    public Guest addGuest(Guest guestToAdd) {
+        // Get the birthday from the guest
+        Date birthday = guestToAdd.getBirthday();
+
+        // Convert Date to LocalDate
+        Instant instant = Instant.ofEpochMilli(birthday.getTime());
+        LocalDate localDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
+
+        // Calculate age based on the birthday
+        int age = Period.between(localDate, LocalDate.now()).getYears();
+
+        // Set the calculated age to the guest
+        guestToAdd.setAge(age);
+
+        // Save the guest to the repository
+        return guestRepository.save(guestToAdd);
+    }
     public void deleteGuestById(Long guestId){guestRepository.deleteById(guestId);}
     
     public Guest updateGuest(Guest guestToUpdate){
