@@ -44,4 +44,8 @@ public class ChargeService {
     public List<Long> getRoomsOfBRN(String BRN) {
         return chargeRepository.findRoomsByBRN(BRN);
     }
+
+    public List<Charge> getChargesOfBRN(String BRN) {
+        return chargeRepository.findByBrnId(BRN);
+    }
 }

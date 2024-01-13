@@ -16,4 +16,6 @@ public interface ChargeRepository extends JpaRepository<Charge,Long> {
             nativeQuery = true
     )
     List<Long> findRoomsByBRN(String BRN);
+
+    List<Charge> findByBrnId(String BRN);
 }
