@@ -118,6 +118,11 @@ INSERT INTO ROOM_TYPE VALUES (2, 'Grand', 'Indulge in a heightened sense of luxu
 INSERT INTO ROOM_TYPE VALUES (3, 'Suite', 'Elevate your stay to a new level of luxury with our exquisite suites. These meticulously designed spaces offer a blend of opulence and functionality, providing a separate area for added comfort and privacy. Immerse yourself in the refined ambiance, enjoy personalized services, and enjoy our thoughtfully curated suites.', 20000, 6, 3, 30);
 INSERT INTO ROOM_TYPE VALUES (4, 'Executive', 'Experience unparalleled luxury in our executive room, where sophistication meets comfort. This spacious and finely appointed room offers a perfect blend of modern amenities and classic elegance. Indulge in a restful night''s sleep on a king-size bed, unwind in the separate living area, and enjoy exclusive access to premium services.', 25000, 8, 2, 40);
 
+INSERT INTO ROOM VALUES(105,1);
+INSERT INTO ROOM VALUES(106,2);
+INSERT INTO ROOM VALUES(107,3);
+INSERT INTO ROOM VALUES(108,4);
+
 INSERT INTO SERVICE VALUES(1, 'Massage Therapy','Spas','C');
 INSERT INTO SERVICE VALUES(2, 'Facial Therapy','Spas','C');
 INSERT INTO SERVICE VALUES(3, 'Water Therapy','Spas','C');
