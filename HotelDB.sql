@@ -109,6 +109,8 @@ CONSTRAINT PAYMENT_DETAIL_PK PRIMARY KEY (PAYMENT_DETAIL_ID),
 CONSTRAINT PAYMENT_DETAIL_FK1 FOREIGN KEY (BRN_ID) REFERENCES BRN(BRN_ID));
 
 INSERT INTO EMPLOYEE VALUES (1, 'Ron Brylle', 'San Gabriel', 'Gomez', TO_DATE('2002-11-09', 'YYYY-MM-DD'), 'Ikaw pa rin tahanan ko, Valenzuela City', 9270442113, 'rsgomez1@up.edu.ph', 21, 69420, 1, 'S');
+INSERT INTO EMPLOYEE VALUES (2, 'Marvin Andrew', 'Sarile', 'Rosales', TO_DATE('2003-03-04', 'YYYY-MM-DD'), 'Paco,Manila', 9159277857, 'msrosales@up.edu.ph', 20, 69420, 1, 'S');
+
 INSERT INTO ACCOUNTS VALUES (1, 'rsgomez1@up.edu.ph', 'imissyou');
 
 INSERT INTO ROOM_TYPE VALUES (1, 'Deluxe', 'Indulge in the comfort of the Deluxe Room, where contemporary elegance meets practical luxury. Thoughtfully designed with modern amenities and stylish décor, this room provides a relaxing retreat for both business and leisure.', 10000, 2, 1, 15);
