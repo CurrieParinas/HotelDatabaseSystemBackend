@@ -48,4 +48,8 @@ public class RoomTypeService {
         }
         return null;
     }
+
+    public Long getPriceOfRoomNumber(Long roomNum) {
+        return roomTypeRepository.findPriceByRoomNumber(roomNum);
+    }
 }

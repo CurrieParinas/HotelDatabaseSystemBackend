@@ -30,4 +30,9 @@ public class RoomTypeController {
     public @ResponseBody RoomType updateRoomType(@RequestBody RoomType roomTypeToUpdate){
         return roomTypeService.updateRoomType(roomTypeToUpdate);
     }
+
+    @GetMapping(path="/getPriceOfRoomNumber/{roomNum}")
+    public Long getPriceOfRoomNumber(@PathVariable Long roomNum) {
+        return roomTypeService.getPriceOfRoomNumber(roomNum);
+    }
 }
