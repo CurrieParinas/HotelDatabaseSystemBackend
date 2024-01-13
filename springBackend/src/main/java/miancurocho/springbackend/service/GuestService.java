@@ -24,18 +24,21 @@ public class GuestService {
     public Guest getGuest(Long guestId){return guestRepository.findByGuestId(guestId);}
 
     public Guest addGuest(Guest guestToAdd) {
-        // Get the birthday from the guest
-        Date birthday = guestToAdd.getBirthday();
+        if(guestToAdd.getBirthday() != null){
+            // Get the birthday from the guest
+            Date birthday = guestToAdd.getBirthday();
 
-        // Convert Date to LocalDate
-        Instant instant = Instant.ofEpochMilli(birthday.getTime());
-        LocalDate localDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
+            // Convert Date to LocalDate
+            Instant instant = Instant.ofEpochMilli(birthday.getTime());
+            LocalDate localDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
 
-        // Calculate age based on the birthday
-        int age = Period.between(localDate, LocalDate.now()).getYears();
+            // Calculate age based on the birthday
+            int age = Period.between(localDate, LocalDate.now()).getYears();
 
-        // Set the calculated age to the guest
-        guestToAdd.setAge(age);
+            // Set the calculated age to the guest
+            guestToAdd.setAge(age);
+        }
+
 
         // Save the guest to the repository
         return guestRepository.save(guestToAdd);
